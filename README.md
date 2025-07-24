@@ -5,7 +5,7 @@ This project scrapes OptiSigns Help Center articles, converts them into Markdown
 
 ---
 
-## ✅ Features
+## Features
 
 - Automatically fetches articles from Zendesk Help Center API.
 - Cleans and converts content into structured Markdown.
@@ -15,7 +15,7 @@ This project scrapes OptiSigns Help Center articles, converts them into Markdown
 
 ---
 
-## 🛠️ Setup
+## Setup
 
 ### Prerequisites
 
@@ -102,7 +102,7 @@ docker push <your-dockerhub-username>/optibot
 
 ---
 
-## 📜 Log Access
+## Log Access
 
 You can check the log output with:
 ```bash
@@ -111,7 +111,7 @@ cat /root/optibot/cron.log
 
 ### Log Entry Example
 ```
-Upload done: 100 total, ✅ 98 completed.
+Upload done: 100 total.
 Log counts:
 Added: 2
 Updated: 3
@@ -121,7 +121,7 @@ Last run: 2025-07-24T07:00:01
 
 ---
 
-## 🧠 Assistant Playground Screenshot
+## Assistant Playground Screenshot
 
 Below is a screenshot of the GPT assistant properly answering support queries with citation from articles:
 
@@ -129,7 +129,7 @@ Below is a screenshot of the GPT assistant properly answering support queries wi
 
 ---
 
-## ✅ Deliverables
+## Deliverables
 
 - [x] Dockerized scraper and uploader
 - [x] Auto upload to Vector Store
