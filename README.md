@@ -67,6 +67,10 @@ docker buildx create --use
 docker buildx build --platform linux/amd64 -t hh68201/optibot --push .
 ```
 
+### Run with Docker
+```bash
+docker run -e OPENAI_API_KEY=your_key_here hh68201/optibot
+```
 ---
 
 ## Deploy with Cron on DigitalOcean
