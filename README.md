@@ -27,11 +27,7 @@ This project scrapes OptiSigns Help Center articles, converts them into Markdown
 
 ### Environment Setup
 
-1. Clone the repo:
-   ```bash
-   git clone <your-repo-url>
-   cd optibot
-   ```
+1. Clone this repo.
 
 2. Set up Python environment:
    ```bash
@@ -52,7 +48,7 @@ This project scrapes OptiSigns Help Center articles, converts them into Markdown
 
 ---
 
-## 🐳 Docker & Deployment
+## Docker & Deployment
 
 ### Build Docker Image
 ```bash
