@@ -9,7 +9,7 @@ from scrape import scrape_and_save
 MARKDOWN_DIR = "markdown_articles"
 METADATA_PATH = "metadata_store.json"
 VECTOR_STORE_ID = "vs_687fb88fef8081919623096963c58dec"
-client = OpenAI(api_key= "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")
+client = OpenAI(api_key= "YOUR-API-KEY")
 added, updated, skipped = 0, 0, 0
 
 def ensure_directories():
