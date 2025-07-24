@@ -4,8 +4,8 @@ from openai import OpenAI
 
 # Bỏ qua cảnh báo Deprecation
 warnings.filterwarnings("ignore", category=DeprecationWarning)
-
-client = OpenAI(api_key= "YOUR_API_KEY") 
+api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=api_key)
 def create_vector_store(name="KnowledgeBase"):
     vector_store = client.vector_stores.create(name=name)
     print(f"Vector store created: {vector_store.id}")
