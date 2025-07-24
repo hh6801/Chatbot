@@ -4,8 +4,12 @@ from openai import OpenAI
 
 # Bỏ qua cảnh báo Deprecation
 warnings.filterwarnings("ignore", category=DeprecationWarning)
+
+
 api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
+
+
 def create_vector_store(name="KnowledgeBase"):
     vector_store = client.vector_stores.create(name=name)
     print(f"Vector store created: {vector_store.id}")
@@ -50,14 +54,10 @@ def create_assistant_with_vector_store(vector_store_id):
         name="OptiSigns Markdown Assistant",
         instructions = """
         You are OptiBot, the customer-support bot for OptiSigns.com.
-        Your Tone must be: helpful, factual, concise.
-        You only answer using the uploaded docs.
+        Tone: helpful, factual, concise.
+        Only answer using the uploaded docs.
         Max 5 bullet points; else link to the doc.
-        At the end of your answer, cite up to 3 sources by including lines that start with Article Original URL: from the most relevant documents.
-        Please answer based on the markdown documentation.
-        Always be concise, clear and cite sources when possible.
-        Respond in the user's language.
-        If the user's question is outside the scope of the documentation, politely inform them and suggest contacting support.
+        Cite up to 3 "Article URL:" lines per reply.
         """,
         model="gpt-4o",
         tools=[{"type": "file_search"}],
