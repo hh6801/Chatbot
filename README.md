@@ -127,7 +127,7 @@ Last run: 2025-07-24T07:00:01
 
 Below is a screenshot of the GPT assistant properly answering support queries with citation from articles:
 
-[GPT Assistant Screenshot](./playground.jpg)
+![GPT Assistant Screenshot](playground.jpg)
 
 ---
 
