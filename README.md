@@ -9,7 +9,7 @@ This project scrapes OptiSigns Help Center articles, converts them into Markdown
 
 - Automatically fetches articles from Zendesk Help Center API.
 - Cleans and converts content into structured Markdown.
-- Uploads new/updated articles to OpenAI Vector Store.
+- Create Assistant and uploads new/updated articles to OpenAI Vector Store.
 - Tracks content hashes to prevent duplicate uploads.
 - Scheduled to run daily via cron on a DigitalOcean Droplet.
 
@@ -23,7 +23,6 @@ This project scrapes OptiSigns Help Center articles, converts them into Markdown
 - Docker & Docker Hub account
 - OpenAI API key (for Vector Store)
 - DigitalOcean Droplet (Ubuntu)
-- Git
 
 ### Environment Setup
 
