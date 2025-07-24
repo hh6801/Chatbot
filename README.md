@@ -1,4 +1,4 @@
-# 🤖 OptiBot – Zendesk Article Scraper & OpenAI Vector Store Uploader
+# OptiBot – Zendesk Article Scraper & OpenAI Vector Store Uploader
 
 OptiBot là một bot hỗ trợ khách hàng của [OptiSigns.com](https://www.optisigns.com), giúp tự động:
 - Thu thập dữ liệu bài viết từ Zendesk Help Center (support.optisigns.com)
@@ -8,7 +8,7 @@ OptiBot là một bot hỗ trợ khách hàng của [OptiSigns.com](https://www.
 
 ---
 
-## 🔧 Setup
+## Setup
 
 ### 1. Clone Repo & Cài đặt
 
