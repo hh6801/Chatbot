@@ -54,17 +54,17 @@ This project scrapes OptiSigns Help Center articles, converts them into Markdown
 ```bash
 docker build -t optibot .
 ```
+
+### Push to Docker Hub
+```bash
+docker tag optibot hh68201/optibot
+docker push hh68201/optibot
+```
 If you're building on non-amd64 architecture, make sure to target the correct platform to deploy on Cron later:
 
 ```bash
 docker buildx create --use
-docker buildx build --platform linux/amd64 -t your_dockerhub_username/optibot --push .
-```
-
-### Push to Docker Hub
-```bash
-docker tag optibot <your-dockerhub-username>/optibot
-docker push <your-dockerhub-username>/optibot
+docker buildx build --platform linux/amd64 -t hh68201/optibot --push .
 ```
 
 ---
@@ -113,11 +113,13 @@ cat /root/optibot/cron.log
 
 ### Log Entry Example
 ```
-Upload done: 100 total.
+Total 100 articles saved in `markdown_articles`.
+Upload done: 3 total,  3 completed.
+
 Log counts:
-Added: 2
-Updated: 3
-Skipped: 95
+Added: 1
+Updated: 2
+Skipped: 99
 Last run: 2025-07-24T07:00:01
 ```
 
