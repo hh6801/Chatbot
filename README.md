@@ -85,7 +85,7 @@ docker buildx build --platform linux/amd64 -t hh68201/optibot --push .
 5. Create `run.sh` script:
    ```bash
    #!/bin/bash
-   docker run --rm <your-dockerhub-username>/optibot
+   docker run -e OPENAI_API_KEY=... <your-dockerhub-username>/optibot
    ```
 
 6. Make it executable:
