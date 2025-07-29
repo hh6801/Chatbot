@@ -2,14 +2,20 @@ import os
 import json
 import hashlib
 from datetime import datetime
-from openai import OpenAI
 from scrape import scrape_and_save
+from bot import create_vector_store, upload_files_to_vector_store, create_assistant_with_vector_store
+from openai import OpenAI
 
-# Cấu hình
+# Constants
 MARKDOWN_DIR = "markdown_articles"
 METADATA_PATH = "metadata_store.json"
-VECTOR_STORE_ID = "vs_687fb88fef8081919623096963c58dec"
-client = OpenAI(api_key= "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")
+
+# API Key from environment
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("Missing OPENAI_API_KEY environment variable")
+
+client = OpenAI(api_key=api_key)
 added, updated, skipped = 0, 0, 0
 
 def ensure_directories():
@@ -31,14 +37,6 @@ def save_metadata(metadata):
 
 def get_markdown_files():
     return [f for f in os.listdir(MARKDOWN_DIR) if f.endswith(".md")]
-
-def upload_to_vector_store(files):
-    file_streams = [open(os.path.join(MARKDOWN_DIR, f), "rb") for f in files]
-    response = client.vector_stores.file_batches.upload_and_poll(
-        vector_store_id=VECTOR_STORE_ID,
-        files=file_streams
-    )
-    print(f"\nUpload done: {response.file_counts.total} total,  {response.file_counts.completed} completed.")
 
 def main():
     global added, updated, skipped
@@ -65,7 +63,14 @@ def main():
             skipped += 1
 
     if files_to_upload:
-        upload_to_vector_store(files_to_upload)
+        print("Creating vector store and uploading files...")
+        vector_store = create_vector_store()
+        file_streams = [open(os.path.join(MARKDOWN_DIR, f), "rb") for f in files_to_upload]
+        upload_files_to_vector_store(vector_store.id, file_streams)
+        # Create assistant using the uploaded vector store
+        assistant = create_assistant_with_vector_store(vector_store.id)
+        print(f"Assistant created with ID: {assistant.id}")
+
     else:
         print("No new or updated files to upload.")
 
