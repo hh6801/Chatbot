@@ -108,8 +108,5 @@ grep CRON /var/log/syslog | tail
 
 ## Screenshot: Assistant Playground
 
-_Add your screenshot here if needed using the following format:_
+![Screenshot](playground.jpg)
 
-```markdown
-![Playground Screenshot](playground.jpg)
-```
